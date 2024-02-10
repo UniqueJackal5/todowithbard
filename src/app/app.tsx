@@ -19,10 +19,15 @@ function App() {
     setTasks(updatedTasks);
   };
 
+  const onDeleteTask = (taskId: number) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className='container mx-auto'>
       <Header />
-      <TaskList tasks={tasks} addNewTask={addNewTask} onTaskComplete={handleTaskComplete} />
+      <TaskList tasks={tasks} addNewTask={addNewTask} onTaskComplete={handleTaskComplete} onDeleteTask={onDeleteTask} />
     </div>
   );
 }
